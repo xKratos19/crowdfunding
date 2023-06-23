@@ -5,11 +5,11 @@ import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 
 const StateContext = createContext();
-const contractAddress = "0xf59A1f8251864e1c5a6bD64020e3569be27e6AA9";
+const contractAddress = "0xBc9a466cfdC4d77Cbfac53F2862F8C651e271d44";
 
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
+  const { mutateAsync: createCampaign} = useContractWrite(contract, "createCampaign");
 
   const address = useAddress();
   const connect = useMetamask();
