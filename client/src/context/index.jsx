@@ -5,25 +5,24 @@ import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 
 const StateContext = createContext();
-const contractAddress = "0xBc9a466cfdC4d77Cbfac53F2862F8C651e271d44";
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: createCampaign} = useContractWrite(contract, "createCampaign");
+  const { contract } = useContract('0xBc9a466cfdC4d77Cbfac53F2862F8C651e271d44');
+  const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
   const connect = useMetamask();
 
   const publishCampaign = async (form) => {
     try {
-      const data = await createCampaign([
+      const data = await createCampaign({args:[
         address, // owner
         form.title, // title
         form.description, // description
         form.target,
         new Date(form.deadline).getTime(), // deadline,
         form.image
-      ])
+      ]})
 
       console.log("contract call success", data)
     } catch (error) {
