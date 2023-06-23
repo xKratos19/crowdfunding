@@ -10,6 +10,7 @@
     "postinstall": "export THIRDWEB_CLI_SKIP_INTRO=true && npx --yes thirdweb@latest generate"
   },
   "dependencies": {
+    "@safe-global/safe-ethers-adapters": "^0.2.0-alpha.0",
     "@thirdweb-dev/react": "^3.11.1",
     "@thirdweb-dev/sdk": "^3.10.5",
     "ethers": "^5.7.2",
